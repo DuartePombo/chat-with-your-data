@@ -1,0 +1,42 @@
+/* -----------------------------------------------------
+   base.css: Base/Reset Styles
+   ----------------------------------------------------- */
+
+/* Universal box-sizing & minimal reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  width: 100%;
+  height: 100%;
+}
+
+/* Basic anchor & button resets */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Default form elements styles */
+input, textarea {
+  font: inherit;
+}
+
+/* Improve textarea resizing */
+textarea {
+  resize: vertical;
+}

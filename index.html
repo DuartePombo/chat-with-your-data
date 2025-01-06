@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat With Your Data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS Imports -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/theme.css">
+</head>
+<body>
+  <header>
+    <h1>Chat With Your Data</h1>
+    <button id="themeToggle" class="theme-toggle">Toggle Dark Mode</button>
+  </header>
+
+  <main>
+    <!-- File Upload Section -->
+    <section id="uploadSection">
+      <h2>Upload Data Files</h2>
+      <div id="fileDropArea" class="file-drop-area">
+        <p>Drag &amp; drop your CSV or Excel file here,<br>or click to select.</p>
+      </div>
+      <input
+        type="file"
+        accept=".csv, .xlsx, .xls"
+        id="fileInput"
+        style="display: none;"
+      />
+      <button id="uploadBtn" class="upload-button">Browse File</button>
+    </section>
+
+    <!-- Data Preview Section -->
+    <section id="previewSection">
+      <h2>Data Preview</h2>
+      <table id="previewTable" class="preview-table">
+        <!-- Dynamically populated in preview.js -->
+      </table>
+    </section>
+
+    <!-- Data Documentation Section -->
+    <section id="documentationSection">
+      <h2>Data Documentation</h2>
+      <div class="doc-field">
+        <label for="datasetDescription">Dataset Description</label>
+        <textarea
+          id="datasetDescription"
+          rows="3"
+          placeholder="Briefly describe your dataset..."
+        ></textarea>
+      </div>
+      <!-- Additional metadata fields will be generated/controlled by docMetadata.js as needed -->
+    </section>
+
+    <!-- Chat Section -->
+    <section id="chatSection">
+      <h2>Chat with Your Data</h2>
+      <div id="chatMessages" class="chat-messages"></div>
+      <div id="chatInputArea" class="chat-input-area">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Ask a question..."
+        />
+        <button id="chatSendBtn" class="chat-send-button">Send</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- JS Imports -->
+  <script src="scripts/main.js"></script>
+  <script src="scripts/fileUpload.js"></script>
+  <script src="scripts/preview.js"></script>
+  <script src="scripts/docMetadata.js"></script>
+  <script src="scripts/chat.js"></script>
+</body>
+</html>

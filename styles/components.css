@@ -1,0 +1,123 @@
+/* -----------------------------------------------------
+   components.css: Specific UI Components
+   ----------------------------------------------------- */
+
+/* =============== Buttons =============== */
+.theme-toggle,
+.upload-button,
+.chat-send-button {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.theme-toggle:hover,
+.upload-button:hover,
+.chat-send-button:hover {
+  background-color: var(--accent-color-hover);
+}
+
+/* =============== File Upload =============== */
+.file-drop-area {
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  transition: background 0.3s;
+}
+.file-drop-area p {
+  margin: 0;
+  font-size: 1rem;
+}
+.file-drop-area.dragover {
+  background-color: var(--secondary-bg-hover);
+}
+.upload-button {
+  margin-top: 0.5rem;
+}
+
+/* =============== Data Preview =============== */
+.preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.preview-table th,
+.preview-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.preview-table thead {
+  background-color: var(--header-bg);
+}
+
+/* =============== Documentation =============== */
+.doc-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.doc-field label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.doc-field textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--secondary-bg);
+  color: var(--text-color);
+}
+.doc-field textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+/* =============== Chat =============== */
+.chat-messages {
+  height: 250px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1rem;
+  background: var(--secondary-bg);
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.message {
+  margin-bottom: 1rem;
+}
+
+.message strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Chat input area */
+.chat-input-area {
+  display: flex;
+  gap: 1rem;
+}
+
+.chat-input-area input {
+  flex: 1;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.75rem;
+  background: var(--secondary-bg);
+  color: var(--text-color);
+}
+
+.chat-input-area input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
