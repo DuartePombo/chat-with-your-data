@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatSection.classList.remove('hidden');
         break;
       default:
-        // Fallback to Step 1 if something's off
+        // Fallback to Step 1
         uploadSection.classList.remove('hidden');
         break;
     }
@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.columnsFromData) {
         window.buildColumnGrid(window.columnsFromData);
       }
-
       currentStep = 3;
       showStep(currentStep);
     }
@@ -86,6 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Step 3 -> 4
   docNextBtn.addEventListener('click', () => {
     if (currentStep === 3) {
+      // Gather all the doc info from the user
+      const { docObject, docTemplate } = window.gatherDocumentation();
+
+      // (Optional) Do something with docObject/docTemplate:
+      // For instance, log them, store them in a global, show them in Step 4, etc.
+      console.log('docObject:', docObject);
+      console.log('docTemplate:\n', docTemplate);
+
+      // Example: Place docTemplate into the LLM doc preview section
+      const llmDocContent = document.getElementById('llmDocContent');
+      llmDocContent.textContent = docTemplate; // or add in a safer HTML manner
+
       currentStep = 4;
       showStep(currentStep);
     }
