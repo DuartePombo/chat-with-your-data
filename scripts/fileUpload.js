@@ -72,15 +72,17 @@ function parseCsvFile(file) {
 
   reader.onload = function(e) {
     const fileContent = e.target.result;
-    // Split into lines
     let lines = fileContent.split(/\r\n|\n/).filter((l) => l.trim() !== '');
     if (lines.length === 0) {
       alert('CSV file is empty or invalid');
       return;
     }
-
-    // First row as columns
+    // First row => columns
     const columns = lines[0].split(',');
+
+    // Save them globally for Step 3
+    window.columnsFromData = columns;
+
     // The rest are data rows
     const dataRows = lines.slice(1);
     const rowCount = dataRows.length;
@@ -140,6 +142,9 @@ function parseExcelFile(file) {
 
     // First row => columns
     const columns = sheetData[0].map(String);
+
+    // Save them globally for Step 3
+    window.columnsFromData = columns;
     // Data rows => everything after first row
     const dataRows = sheetData.slice(1);
     const rowCount = dataRows.length;

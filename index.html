@@ -52,19 +52,41 @@
     <!-- ======================= STEP 3: Data Documentation ======================= -->
     <section id="documentationSection" class="step-section hidden">
       <h2>Data Documentation</h2>
+
+      <!-- 1) Overall Data Description Section -->
+      <h3>Overall Data Description</h3>
       <p>
-        Please describe your dataset as deeply as possible. Provide an overview of what it contains and
-        the meaning of each column or field.
+        Please provide a thorough overview of your dataset below, including its purpose,
+        unique identifiers, and general structure.
       </p>
       <div class="doc-field">
-        <label for="datasetDescription">Dataset Description</label>
+        <label for="datasetOverview">Dataset Overview</label>
         <textarea
-          id="datasetDescription"
-          rows="3"
-          placeholder="Describe the dataset in detail..."
-        ></textarea>
+          id="datasetOverview"
+          rows="6"
+        >
+    ### Overal Data Description
+    (PLEASE DELETE THIS BOILERPLATE EXAMPLE AND CHANGE WITH YOUR OWN DESCRIPTION.)
+    "This dataset contains transactional sales information for Q1 2025. Each row corresponds to a unique sale. 
+    The 'order_id' is used as a unique identifier. The 'date' column follows the YYYY-MM-DD format. 
+    We also have columns for product color, price, and quantity. 
+    Our team uses this data to analyze sales trends, product performance, and inventory needs."
+        </textarea>
       </div>
-      <!-- Additional column-specific fields will be added dynamically, if desired. -->
+
+      <!-- 2) Column Information Section -->
+      <h3>Column Information</h3>
+      <p>
+        Below, each column from your uploaded data is displayed in brackets 
+        <code>[column_name]</code>. Please add a short description for each column 
+        (e.g. possible values, format) and choose the appropriate data type.
+      </p>
+
+      <!-- Grid container for columns: (Column Name | Description | Data Type) -->
+      <div id="columnGrid" class="column-grid">
+        <!-- Dynamically populated by docMetadata.js -->
+      </div>
+
       <div class="step-actions">
         <!-- Back to Step 2 -->
         <button id="docBackBtn" class="back-step-button">Back</button>

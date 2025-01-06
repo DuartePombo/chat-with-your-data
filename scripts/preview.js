@@ -30,3 +30,6 @@ function updatePreviewTable(columnHeaders, rowsData) {
   });
   previewTable.appendChild(tbody);
 }
+
+
+window.columnsFromData = columns;

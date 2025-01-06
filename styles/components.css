@@ -15,6 +15,13 @@
   font-weight: 500;
 }
 
+.theme-toggle:hover,
+.upload-button:hover,
+.chat-send-button:hover,
+.next-step-button:hover {
+  background-color: var(--accent-color-hover);
+}
+
 /* Back Step Button */
 .back-step-button {
   background-color: var(--accent-color);
@@ -24,18 +31,9 @@
   transition: background-color 0.2s ease-in-out;
   font-weight: 500;
 }
-
-
-.theme-toggle:hover,
-.upload-button:hover,
-.chat-send-button:hover,
-.next-step-button:hover {
-  background-color: var(--accent-color-hover);
-}
 .back-step-button:hover {
   background-color: var(--accent-color-hover);
 }
-
 
 /* =============== File Upload =============== */
 .file-drop-area {
@@ -109,6 +107,72 @@
   border-color: var(--accent-color);
 }
 
+/* =================== Column Grid for Step 3 =================== */
+.column-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 2.5fr 1.3fr; /* Column Name | Description | Data Type */
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+
+.column-row {
+  display: contents; /* let the children align to parent's defined columns */
+}
+
+/* Column Name read-only box (left column) */
+.column-name {
+  padding: 0.5rem;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+/* Description text area (middle column) */
+.column-description {
+  width: 100%;
+  min-height: 60px;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--secondary-bg);
+  color: var(--text-color);
+  resize: vertical;
+}
+.column-description:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+/* Data Type dropdown (right column) */
+.column-datatype {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--secondary-bg);
+  color: var(--text-color);
+}
+.column-datatype:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.column-header-row {
+  display: contents;
+  margin-bottom: 0.5rem;
+}
+.column-header-cell {
+  font-weight: 600;
+  padding: 0.5rem;
+  background: var(--secondary-bg-hover);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
 /* =============== LLM Doc Preview =============== */
 .llm-doc-content {
   border: 1px solid var(--border-color);
@@ -160,3 +224,4 @@
   outline: none;
   border-color: var(--accent-color);
 }
+
