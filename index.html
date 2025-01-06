@@ -42,6 +42,9 @@
       <div id="datasetShape" class="dataset-shape"></div>
       <table id="previewTable" class="preview-table"></table>
       <div class="step-actions">
+        <!-- Back to Step 1 -->
+        <button id="previewBackBtn" class="back-step-button">Back</button>
+        <!-- Proceed to Step 3 -->
         <button id="previewNextBtn" class="next-step-button">Confirm &amp; Next Step</button>
       </div>
     </section>
@@ -63,6 +66,9 @@
       </div>
       <!-- Additional column-specific fields will be added dynamically, if desired. -->
       <div class="step-actions">
+        <!-- Back to Step 2 -->
+        <button id="docBackBtn" class="back-step-button">Back</button>
+        <!-- Proceed to Step 4 -->
         <button id="docNextBtn" class="next-step-button">Next Step</button>
       </div>
     </section>
@@ -81,6 +87,9 @@
         <p><strong>Column B:</strong> Sample auto-generated description.</p>
       </div>
       <div class="step-actions">
+        <!-- Back to Step 3 -->
+        <button id="llmDocBackBtn" class="back-step-button">Back</button>
+        <!-- Proceed to Step 5 -->
         <button id="llmDocNextBtn" class="next-step-button">Proceed to Chat</button>
       </div>
     </section>
@@ -96,6 +105,10 @@
           placeholder="Ask a question..."
         />
         <button id="chatSendBtn" class="chat-send-button">Send</button>
+      </div>
+      <div class="step-actions">
+        <!-- Back to Step 4 -->
+        <button id="chatBackBtn" class="back-step-button">Back</button>
       </div>
     </section>
   </main>

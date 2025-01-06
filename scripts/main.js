@@ -18,9 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentStep = 1;
 
   // Buttons for navigating steps
+  // Next step
   const previewNextBtn = document.getElementById('previewNextBtn');
   const docNextBtn = document.getElementById('docNextBtn');
   const llmDocNextBtn = document.getElementById('llmDocNextBtn');
+
+  // Back step
+  const previewBackBtn = document.getElementById('previewBackBtn');
+  const docBackBtn = document.getElementById('docBackBtn');
+  const llmDocBackBtn = document.getElementById('llmDocBackBtn');
+  const chatBackBtn = document.getElementById('chatBackBtn');
 
   // Step sections
   const uploadSection = document.getElementById('uploadSection');
@@ -54,12 +61,17 @@ document.addEventListener('DOMContentLoaded', () => {
       case 5:
         chatSection.classList.remove('hidden');
         break;
+      default:
+        // If something goes wrong, default to Step 1
+        uploadSection.classList.remove('hidden');
+        break;
     }
   }
 
   // Initialize view
   showStep(currentStep);
 
+  // =============== NEXT Step Handlers ===============
   // Next step from Preview -> Documentation
   previewNextBtn.addEventListener('click', () => {
     if (currentStep === 2) {
@@ -84,7 +96,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Make these functions accessible if needed in other scripts
+  // =============== BACK Step Handlers ===============
+  // Step 2 -> 1
+  previewBackBtn.addEventListener('click', () => {
+    if (currentStep === 2) {
+      currentStep = 1;
+  
+      // Reset the file input
+      const fileInput = document.getElementById('fileInput');
+      fileInput.value = '';
+  
+      // Clear preview table and shape if you want to remove old data
+      const previewTable = document.getElementById('previewTable');
+      previewTable.innerHTML = '';
+      const datasetShapeDiv = document.getElementById('datasetShape');
+      datasetShapeDiv.textContent = '';
+  
+      showStep(currentStep);
+    }
+  });
+  
+  // Step 3 -> 2
+  docBackBtn.addEventListener('click', () => {
+    if (currentStep === 3) {
+      currentStep = 2;
+      showStep(currentStep);
+    }
+  });
+
+  // Step 4 -> 3
+  llmDocBackBtn.addEventListener('click', () => {
+    if (currentStep === 4) {
+      currentStep = 3;
+      showStep(currentStep);
+    }
+  });
+
+  // Step 5 -> 4
+  chatBackBtn.addEventListener('click', () => {
+    if (currentStep === 5) {
+      currentStep = 4;
+      showStep(currentStep);
+    }
+  });
+
+  // Expose for external usage
   window.showStep = showStep;
   window.setCurrentStep = (step) => {
     currentStep = step;

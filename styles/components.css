@@ -15,12 +15,27 @@
   font-weight: 500;
 }
 
+/* Back Step Button */
+.back-step-button {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+
 .theme-toggle:hover,
 .upload-button:hover,
 .chat-send-button:hover,
 .next-step-button:hover {
   background-color: var(--accent-color-hover);
 }
+.back-step-button:hover {
+  background-color: var(--accent-color-hover);
+}
+
 
 /* =============== File Upload =============== */
 .file-drop-area {
