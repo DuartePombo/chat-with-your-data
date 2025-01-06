@@ -29,3 +29,16 @@ header {
     margin-bottom: 2rem;
   }
   
+  /* Step sections hidden logic */
+  .hidden {
+    display: none;
+  }
+  
+  /* Basic container for step navigation buttons */
+  .step-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  

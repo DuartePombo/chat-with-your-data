@@ -1,21 +1,24 @@
 /* -----------------------------------------------------
-   components.css: Specific UI Components
+   components.css: Specific UI Components & Classes
    ----------------------------------------------------- */
 
 /* =============== Buttons =============== */
 .theme-toggle,
 .upload-button,
-.chat-send-button {
+.chat-send-button,
+.next-step-button {
   background-color: var(--accent-color);
   color: #ffffff;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   transition: background-color 0.2s ease-in-out;
+  font-weight: 500;
 }
 
 .theme-toggle:hover,
 .upload-button:hover,
-.chat-send-button:hover {
+.chat-send-button:hover,
+.next-step-button:hover {
   background-color: var(--accent-color-hover);
 }
 
@@ -40,6 +43,12 @@
 }
 
 /* =============== Data Preview =============== */
+.dataset-shape {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
 .preview-table {
   width: 100%;
   border-collapse: collapse;
@@ -70,16 +79,31 @@
   font-weight: 600;
 }
 
-.doc-field textarea {
+.doc-field textarea,
+.doc-field input {
   padding: 0.75rem;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   background: var(--secondary-bg);
   color: var(--text-color);
+  width: 100%;
 }
-.doc-field textarea:focus {
+.doc-field textarea:focus,
+.doc-field input:focus {
   outline: none;
   border-color: var(--accent-color);
+}
+
+/* =============== LLM Doc Preview =============== */
+.llm-doc-content {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1rem;
+  background: var(--secondary-bg);
+  line-height: 1.6;
+}
+.llm-doc-content p {
+  margin: 0.75rem 0;
 }
 
 /* =============== Chat =============== */

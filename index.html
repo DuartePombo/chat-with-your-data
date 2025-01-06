@@ -18,8 +18,8 @@
   </header>
 
   <main>
-    <!-- File Upload Section -->
-    <section id="uploadSection">
+    <!-- ======================= STEP 1: Upload Data ======================= -->
+    <section id="uploadSection" class="step-section">
       <h2>Upload Data Files</h2>
       <div id="fileDropArea" class="file-drop-area">
         <p>Drag &amp; drop your CSV or Excel file here,<br>or click to select.</p>
@@ -33,30 +33,57 @@
       <button id="uploadBtn" class="upload-button">Browse File</button>
     </section>
 
-    <!-- Data Preview Section -->
-    <section id="previewSection">
+    <!-- ======================= STEP 2: Data Preview ======================= -->
+    <section id="previewSection" class="step-section hidden">
       <h2>Data Preview</h2>
-      <table id="previewTable" class="preview-table">
-        <!-- Dynamically populated in preview.js -->
-      </table>
+      <div id="datasetShape" class="dataset-shape"></div>
+      <table id="previewTable" class="preview-table"></table>
+      <div class="step-actions">
+        <button id="previewNextBtn" class="next-step-button">Confirm &amp; Next Step</button>
+      </div>
     </section>
 
-    <!-- Data Documentation Section -->
-    <section id="documentationSection">
+    <!-- ======================= STEP 3: Data Documentation ======================= -->
+    <section id="documentationSection" class="step-section hidden">
       <h2>Data Documentation</h2>
+      <p>
+        Please describe your dataset as deeply as possible. Provide an overview of what it contains and
+        the meaning of each column or field.
+      </p>
       <div class="doc-field">
         <label for="datasetDescription">Dataset Description</label>
         <textarea
           id="datasetDescription"
           rows="3"
-          placeholder="Briefly describe your dataset..."
+          placeholder="Describe the dataset in detail..."
         ></textarea>
       </div>
-      <!-- Additional metadata fields will be generated/controlled by docMetadata.js as needed -->
+      <!-- Additional column-specific fields will be added dynamically, if desired. -->
+      <div class="step-actions">
+        <button id="docNextBtn" class="next-step-button">Next Step</button>
+      </div>
     </section>
 
-    <!-- Chat Section -->
-    <section id="chatSection">
+    <!-- ======================= STEP 4: LLM-Generated Doc Preview ======================= -->
+    <section id="llmDocSection" class="step-section hidden">
+      <h2>LLM-Generated Documentation</h2>
+      <p>
+        Below is a sample of automatically generated documentation based on the data structure
+        and your descriptions. Feel free to review and make edits before finalizing.
+      </p>
+      <div id="llmDocContent" class="llm-doc-content">
+        <!-- The system or backend would populate this content. Here is a placeholder. -->
+        <p><strong>Dataset Overview:</strong> Lorem ipsum dolor sit amet...</p>
+        <p><strong>Column A:</strong> Sample auto-generated description.</p>
+        <p><strong>Column B:</strong> Sample auto-generated description.</p>
+      </div>
+      <div class="step-actions">
+        <button id="llmDocNextBtn" class="next-step-button">Proceed to Chat</button>
+      </div>
+    </section>
+
+    <!-- ======================= STEP 5: Chat with Your Data ======================= -->
+    <section id="chatSection" class="step-section hidden">
       <h2>Chat with Your Data</h2>
       <div id="chatMessages" class="chat-messages"></div>
       <div id="chatInputArea" class="chat-input-area">

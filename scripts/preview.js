@@ -1,5 +1,4 @@
 // preview.js: Dynamically creates a preview table once data is parsed
-// For demonstration, we have a placeholder function
 
 function updatePreviewTable(columnHeaders, rowsData) {
     const previewTable = document.getElementById('previewTable');
@@ -31,10 +30,4 @@ function updatePreviewTable(columnHeaders, rowsData) {
     });
     previewTable.appendChild(tbody);
   }
-  
-  // Example usage: 
-  // updatePreviewTable(['Name', 'Age', 'Country'], [
-  //   ['Alice', '30', 'USA'],
-  //   ['Bob', '25', 'Canada'],
-  // ]);
   
