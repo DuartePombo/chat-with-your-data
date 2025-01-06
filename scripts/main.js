@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Toggle dark/light theme
     themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-theme');
-      if (document.body.classList.contains('dark-theme')) {
-        themeToggle.textContent = 'Toggle Light Mode';
-      } else {
+      document.body.classList.toggle('light-theme');
+      if (document.body.classList.contains('light-theme')) {
         themeToggle.textContent = 'Toggle Dark Mode';
+      } else {
+        themeToggle.textContent = 'Toggle Light Mode';
       }
     });
   
