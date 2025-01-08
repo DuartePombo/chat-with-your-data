@@ -82,29 +82,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Step 3 -> 4
-  docNextBtn.addEventListener('click', () => {
-    if (currentStep === 3) {
-      // Gather all the doc info from the user
-      const { docObject, docTemplate } = window.gatherDocumentation();
 
-      // (Optional) Do something with docObject/docTemplate:
-      // For instance, log them, store them in a global, show them in Step 4, etc.
-      console.log('docObject:', docObject);
-      console.log('docTemplate:\n', docTemplate);
+ // Step 3 -> 4 (Generate LLM doc)
+ docNextBtn.addEventListener('click', async () => {
+  if (currentStep === 3) {
+    // 1) Gather user’s doc input
+    const { docObject, docTemplate } = window.gatherDocumentation();
 
-      // Example: Place docTemplate into the LLM doc preview section
+    try {
+      // 2) Send docTemplate to your new /api/generate-doc endpoint
+      const response = await fetch('http://localhost:3000/api/generate-doc', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ docTemplate }), 
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json(); 
+      // data.text => the LLM’s generated summary
+
+      // 3) Display the LLM response in the Step 4 #llmDocContent area
       const llmDocContent = document.getElementById('llmDocContent');
-      llmDocContent.textContent = docTemplate; // or add in a safer HTML manner
+      const llmDocEditor = document.getElementById('llmDocEditor');
+      llmDocEditor.value = data.text;
 
+      // Move to Step 4
       currentStep = 4;
       showStep(currentStep);
-    }
-  });
 
-  // Step 4 -> 5
+    } catch (err) {
+      console.error('Error generating doc:', err);
+      alert('Could not generate doc from LLM. Check console for details.');
+    }
+  }
+});
+
+
   llmDocNextBtn.addEventListener('click', () => {
     if (currentStep === 4) {
+      // 1) Grab the final, edited text from the <textarea>
+      const editedDoc = document.getElementById('llmDocEditor').value;
+
+      // 2) Store it globally or pass it along to Step 5
+      window.finalDocForChat = editedDoc;
+
+      // 3) Move to Step 5
       currentStep = 5;
       showStep(currentStep);
     }

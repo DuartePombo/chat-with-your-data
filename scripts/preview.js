@@ -32,4 +32,4 @@ function updatePreviewTable(columnHeaders, rowsData) {
 }
 
 
-window.columnsFromData = columns;
+//window.columnsFromData = columns;

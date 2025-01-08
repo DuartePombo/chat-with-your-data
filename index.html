@@ -102,12 +102,13 @@ Our team uses this data to analyze sales trends, product performance, and invent
         Below is a sample of automatically generated documentation based on the data structure
         and your descriptions. Feel free to review and make edits before finalizing.
       </p>
-      <div id="llmDocContent" class="llm-doc-content">
-        <!-- Populated by main.js or docMetadata.js if you want to show aggregated info here -->
-        <p><strong>Dataset Overview:</strong> Lorem ipsum dolor sit amet...</p>
-        <p><strong>Column A:</strong> Sample auto-generated description.</p>
-        <p><strong>Column B:</strong> Sample auto-generated description.</p>
-      </div>
+    
+      <!-- Remove or comment out the old #llmDocContent if you like. Instead, use a <textarea>. -->
+      <!-- <div id="llmDocContent" class="llm-doc-content"></div> -->
+    
+      <textarea id="llmDocEditor" class="llm-doc-editor"></textarea>
+      <!-- ^ Add custom styling in CSS, so it looks nice. -->
+    
       <div class="step-actions">
         <!-- Back to Step 3 -->
         <button id="llmDocBackBtn" class="back-step-button">Back</button>
